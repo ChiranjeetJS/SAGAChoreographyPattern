@@ -76,7 +76,7 @@ public class PaymentService {
 	
 	
 	public List<Payment> getPaymentDetails(){
-		
+		   
 		return paymentrepo.findAll();
 	}
 
