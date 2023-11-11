@@ -22,7 +22,7 @@ public class PaymentProducer {
 	
 	public void sendPaymentInfo(PaymentEvent p) {
 		
-		Message<PaymentEvent>  message = MessageBuilder.withPayload(p).setHeader(KafkaHeaders.TOPIC,"payment-topic").build();
+		Message<PaymentEvent>  message = MessageBuilder.withPayload(p).setHeader(KafkaHeaders.TOPIC,"payment-service").build();
 		
 		kafkatemplate.send(message);
 	}

@@ -26,5 +26,13 @@ public class OrderProducer {
 		kafkatemplate.send(msg);
 		
 	}
+	
+	public void sendMessageafterCompletion(OrderEvent order) {
+		
+		Message<OrderEvent> msg = MessageBuilder.withPayload(order).setHeader(KafkaHeaders.TOPIC,"orders-completed").build();
+		System.out.println(order);
+		kafkatemplate.send(msg);
+		
+	}
 
 }

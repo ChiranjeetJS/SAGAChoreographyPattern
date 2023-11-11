@@ -12,7 +12,16 @@ public class OrderEvent {
 	private String productName;
 	private int totalcost;
 	private String userId;
+	public UUID getTxnID() {
+		return txnID;
+	}
+
+	public void setTxnID(UUID txnID) {
+		this.txnID = txnID;
+	}
+
 	private String orderStatus;
+	private UUID txnID;
 	public UUID getOrderId() {
 		return orderID;
 	}
@@ -44,7 +53,7 @@ public class OrderEvent {
 
 	@Override
 	public String toString() {
-		return this.orderID +" "+this.userId+" "+this.productName+" "+this.orderStatus;
+		return this.txnID+" "+ this.orderID +" "+this.userId+" "+this.productName+" "+this.orderStatus;
 	}
 	
 	

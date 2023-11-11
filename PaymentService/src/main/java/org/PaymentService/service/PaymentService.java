@@ -50,6 +50,7 @@ public class PaymentService {
 	    if(balance >= 0) {
 	    p.setBalance(balance);
 	    p.setPaymentStatus("Success");
+	    
 	    order.setOrderStatus("Succcess");
 	    }
 	    else {
@@ -57,12 +58,14 @@ public class PaymentService {
 	    	p.setPaymentStatus("Failure");
 	    	
 	    }
+	    p.setTxnId(order.getTxnID());
 	    
 	    PaymentEvent event = new PaymentEvent();
 	    
 	    event.setPaymentStatus(p.getPaymentStatus());
 	    event.setBalance(p.getBalance());
 	    event.setUserId(p.getUserId());
+	    event.setTxnID(p.getTxnId());
 	    
 	    
 	    producer.sendPaymentInfo(event);

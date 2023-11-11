@@ -10,7 +10,7 @@ public class PaymentEvent {
 	
 	@Override
 	public String toString() {
-		return "paymentId=" + paymentId + ", userId=" + userId + ", balance=" + balance + ", paymentStatus="
+		return "transactionId = "+txnID+ ", paymentId=" + paymentId + ", userId=" + userId + ", balance=" + balance + ", paymentStatus="
 				+ paymentStatus;
 	}
 	
@@ -18,6 +18,16 @@ public class PaymentEvent {
 	private String userId;
 	private int balance;
 	private String paymentStatus;
+    private UUID txnID;
+    
+	public UUID getTxnID() {
+		return txnID;
+	}
+
+	public void setTxnID(UUID txnID) {
+		this.txnID = txnID;
+	}
+
 	public UUID getPaymentId() {
 		return paymentId;
 	}

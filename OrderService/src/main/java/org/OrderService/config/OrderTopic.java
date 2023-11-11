@@ -13,4 +13,10 @@ public class OrderTopic {
 		
 		return TopicBuilder.name("orders-service").build();
 	}
+	
+	@Bean
+	public NewTopic orderfulfillmentTopic() {
+		return TopicBuilder.name("orders-completed").build();
+	}
+	
 }

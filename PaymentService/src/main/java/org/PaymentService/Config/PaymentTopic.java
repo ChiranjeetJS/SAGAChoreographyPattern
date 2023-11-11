@@ -11,7 +11,7 @@ public class PaymentTopic {
 	@Bean
 	public NewTopic paymentserviceTopic() {
 		
-		return TopicBuilder.name("payment-topic").build();
+		return TopicBuilder.name("payment-service").build();
 	}
 
 }

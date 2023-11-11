@@ -31,6 +31,7 @@ public class OrderService {
 		event.setProductName(order.getProductName());
 		event.setTotalcost(order.getTotalcost());
 		event.setUserId(order.getUserId());
+		event.setTxnID(order.getTxnId());
 		
 		producer.sendMessage(event);
 		
@@ -39,16 +40,34 @@ public class OrderService {
 	
 	public Orders ProcessOrder(PaymentEvent payment) {
 		
-		Orders order = repo.findByuserId(payment.getUserId());
+		Orders order = repo.findBytxnId(payment.getTxnID());
+		
+		System.out.println(order);
 		
 		if(payment.getPaymentStatus().equals("Success")) {
 			order.setOrderStatus("Success");
 		}
 		else {
 			order.setOrderStatus("Failure");
+			
 		}
 		
+		OrderEvent event = new OrderEvent();
+		
+		event.setOrderStatus(order.getOrderStatus());
+		event.setProductName(order.getProductName());
+		event.setTotalcost(order.getTotalcost());
+		event.setUserId(order.getUserId());
+		event.setTxnID(order.getTxnId());
+		
+		producer.sendMessageafterCompletion(event);
+		
+		
 		repo.save(order);
+		
+		System.out.println(order);
+		
+		
 		
 		return  order;
 		

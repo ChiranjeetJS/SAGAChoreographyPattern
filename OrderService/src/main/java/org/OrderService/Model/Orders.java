@@ -13,9 +13,23 @@ public class Orders {
 	private int totalcost;
 	private String userId;
 	private String orderStatus;
+	private UUID txnId = UUID.randomUUID();
+	
+	static int count = 0;
+	
+	
+	
+	public UUID getTxnId() {
+		return txnId;
+	}
+
+	
+
 	public UUID getOrderId() {
 		return orderID;
 	}
+	
+
 
 	public String getProductName() {
 		return productName;
@@ -44,7 +58,7 @@ public class Orders {
 
 	@Override
 	public String toString() {
-		return this.orderID +" "+this.userId+" "+this.productName+" "+this.orderStatus;
+		return this.txnId+" "+ this.orderID +" "+this.userId+" "+this.productName+" "+this.orderStatus;
 	}
 	
 	

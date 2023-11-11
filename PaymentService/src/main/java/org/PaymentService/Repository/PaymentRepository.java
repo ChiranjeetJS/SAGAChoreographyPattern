@@ -11,4 +11,9 @@ public interface PaymentRepository extends JpaRepository<Payment, UUID> {
 
 	
 	public Payment findByuserId(String id);
+	
+	
+	
+	
+	
 }
