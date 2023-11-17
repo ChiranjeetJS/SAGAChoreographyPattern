@@ -79,5 +79,6 @@
     <module>OrderService</module>
     <module>PaymentService</module>
     <module>BaseDomain</module>
+    <module>EmailService</module>
   </modules>
 </project>

@@ -82,6 +82,17 @@ public class PaymentService {
 		
 		return paymentrepo.findAll();
 	}
+	
+	public Payment updatePayment(Payment pay) {
+		
+		 Payment updatedpayment = paymentrepo.findByuserId(pay.getUserId());
+		 
+		 updatedpayment.setBalance(updatedpayment.getBalance()+pay.getBalance());;
+		 
+		 paymentrepo.save(updatedpayment);
+		 
+		 return updatedpayment;
+	}
 
 			
 	

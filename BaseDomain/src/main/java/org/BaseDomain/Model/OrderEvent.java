@@ -11,10 +11,20 @@ public class OrderEvent {
 	private UUID  orderID = UUID.randomUUID();;
 	private String productName;
 	private int totalcost;
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
 	private String userId;
 	public UUID getTxnID() {
 		return txnID;
 	}
+	
+	private String emailId;
 
 	public void setTxnID(UUID txnID) {
 		this.txnID = txnID;
@@ -53,8 +63,11 @@ public class OrderEvent {
 
 	@Override
 	public String toString() {
-		return this.txnID+" "+ this.orderID +" "+this.userId+" "+this.productName+" "+this.orderStatus;
+		return this.txnID+" "+ this.orderID +" "+this.userId+" "+this.emailId+" "+this.productName+" "+this.orderStatus;
 	}
+	
+	
+
 	
 	
 	

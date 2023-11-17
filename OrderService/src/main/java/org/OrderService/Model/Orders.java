@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 public class Orders {
 	@Id 
 	private UUID  orderID = UUID.randomUUID();;
+	private String emailId;
 	private String productName;
 	private int totalcost;
 	private String userId;
@@ -19,6 +20,18 @@ public class Orders {
 	
 	
 	
+	public String getEmailId() {
+		return emailId;
+	}
+
+
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+
+
 	public UUID getTxnId() {
 		return txnId;
 	}
@@ -58,7 +71,7 @@ public class Orders {
 
 	@Override
 	public String toString() {
-		return this.txnId+" "+ this.orderID +" "+this.userId+" "+this.productName+" "+this.orderStatus;
+		return this.txnId+" "+ this.orderID +" "+this.userId+" "+this.emailId+" "+this.productName+" "+this.orderStatus;
 	}
 	
 	

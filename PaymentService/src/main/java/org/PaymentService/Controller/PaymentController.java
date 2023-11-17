@@ -63,6 +63,13 @@ public class PaymentController {
 	
 	}
 	
+	@PostMapping("/updatePayment")
+	public Payment updatePayment(@RequestBody Payment payment) {
+		
+		return service.updatePayment(payment);
+		
+	}
+	
 	
 		 
 		

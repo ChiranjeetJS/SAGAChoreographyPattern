@@ -32,6 +32,7 @@ public class OrderService {
 		event.setTotalcost(order.getTotalcost());
 		event.setUserId(order.getUserId());
 		event.setTxnID(order.getTxnId());
+		event.setEmailId(order.getEmailId());
 		
 		producer.sendMessage(event);
 		
@@ -59,6 +60,7 @@ public class OrderService {
 		event.setTotalcost(order.getTotalcost());
 		event.setUserId(order.getUserId());
 		event.setTxnID(order.getTxnId());
+		event.setEmailId(order.getEmailId());
 		
 		producer.sendMessageafterCompletion(event);
 		
